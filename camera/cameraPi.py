@@ -1,7 +1,7 @@
 from picamera import PiCamera
 from time import sleep
 from storing_information import savePath
-from qr_decomposer import qr_decomposer
+from qr_decomposer import decodeQR
 import datetime 
 
 
@@ -14,7 +14,7 @@ def takePictures():
     camera.rotation = 180
     camera.start_preview()
     camera.capture(qrCapture)
-    containerId = qr_decomposer(qrCapture)
+    containerId = decodeQR(qrCapture)
     sleep(2)
 
     imagesNames = []
